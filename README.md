@@ -1,1 +1,1 @@
-# mailer
+# Mailer Package
