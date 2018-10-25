@@ -38,9 +38,7 @@ class Mailer
     {
         $this->container = $container;
 
-        $config = $container->get('config');
-
-        $this->options = $config->get('mailer::config');
+        $this->options = $container->get('config')->get('mailer::config');
 
         $this->mailer = $this->getMailerInstance();
     }
@@ -194,5 +192,5 @@ class Mailer
 
         return $mailer;
     }
-    
+
 }
