@@ -1,8 +1,9 @@
 {
-	"name": "placer/mailer",
+	"name": "packages/mailer",
 	"description": "Simple mailer for Mako Framework",
 	"require": {
-		"php": ">=7.1.3"
+		"php": ">=7.1.3",
+		"mako/framework": "5.7.*"
 	},
 	"autoload": {
 		"psr-4": {
