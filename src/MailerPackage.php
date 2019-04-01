@@ -12,7 +12,7 @@ class MailerPackage extends Package
      * @var string
      */
     protected $packageName = 'placer/mailer';
-    
+
     /**
      * Package namespace.
      *
@@ -23,12 +23,12 @@ class MailerPackage extends Package
     /**
      * {@inheritdoc}
      */
-    protected function bootstrap()
+    protected function bootstrap(): void
     {
         $this->container->registerSingleton([Mailer::class, 'mailer'], function()
         {
             return new Mailer($this->container);
         });
     }
-    
+
 }
