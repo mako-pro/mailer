@@ -52,19 +52,19 @@ class Mailer
      */
     public function message(string $name = null, $data = null)
     {
-        $mailer = $this->mailer;
-
         $config = $this->options['messages'][$name ?? 'default'];
 
-        $mailer->setSubject($config['subject']);
+        $this->mailer->setSubject($config['subject']);
 
         $view = $this->container->get('view');
 
-        $mailer->view = $view->create($config['view']);
+        $this->mailer->view = $view->create($config['view']);
+
+        $this->mailer->view->assign('fetch', true);
 
         if (! empty($data))
         {
-            $mailer->view->assign('data', (object) ($data));
+            $this->mailer->view->assign('data', (object) ($data));
         }
 
         if (! empty($config['images']))
@@ -72,9 +72,9 @@ class Mailer
             $i = 1;
             foreach ($config['images'] as $value)
             {
-                $imageId = $mailer->addInlineImage($value);
+                $imageId = $this->mailer->addInlineImage($value);
 
-                $mailer->view->assign('cid_'.$i, $imageId);
+                $this->mailer->view->assign('cid_'.$i, $imageId);
 
                 $i++;
             }
@@ -84,7 +84,7 @@ class Mailer
         {
             foreach ($config['attachments'] as $value)
             {
-                $mailer->addAttachment($value);
+                $this->mailer->addAttachment($value);
             }
         }
 

@@ -7,10 +7,10 @@
 <body>
 <div>
     <h1>Default Message</h1>
-    <h3>Hello, {{ $name }}!<h3>
-    {% if(isset($cid_1)) %}
-    <img src="cid:{{ $cid_1 }}">
-    {% endif %}
+    <h3>Hello, {$name}!<h3>
+    {if isset($cid_1) %}
+    <img src="cid:{$cid_1}">
+    {/if}
 </div>
 </body>
 </html>
