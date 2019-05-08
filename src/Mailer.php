@@ -60,8 +60,6 @@ class Mailer
 
         $this->mailer->view = $view->create($config['view']);
 
-        $this->mailer->view->assign('fetch', true);
-
         if (! empty($data))
         {
             $this->mailer->view->assign('data', (object) ($data));
